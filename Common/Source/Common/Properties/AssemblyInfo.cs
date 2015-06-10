@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Common")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Common project for TeamCity Azure demo")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ruslan")]
 [assembly: AssemblyProduct("Common")]
