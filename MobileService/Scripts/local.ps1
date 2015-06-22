@@ -6,7 +6,6 @@ Param (
 )
 
 $version =  "" + (Get-Date).Month + "." + (Get-Date).Day + "." + (Get-Date).Hour  + "." + (Get-Date).Minute+ (Get-Date).Millisecond
-$debugConfiguration = @{clean=$false;restorePackage=$false;updateVersion=$false;build=$true;test=$false;deployPackage=$false}
+$debugConfiguration = @{clean=$true;restorePackage=$true;updateVersion=$true;build=$true;test=$true;deployPackage=$true}
 
-remove : and test
-cls | .\run-build.ps1 -version:$version -contentPath:$contentPath -computerName:$computerName -userName:$userName -password:$password -debugConfiguration:$debugConfiguration
+cls | .\run-build.ps1 -version $version -contentPath $contentPath -computerName $computerName -userName $userName -password $password -debugConfiguration $debugConfiguration
