@@ -1,13 +1,12 @@
 ﻿using Common;
 using UserManagement.Controllers;
 using UserManagement.Services;
-//using Xunit;
+using Xunit;
 
 namespace Tests.Services
 {
     public class UserServiceTest
     {
-/*
         private readonly IUserService _userService = new UserService();
 
         public UserServiceTest()
@@ -50,7 +49,6 @@ namespace Tests.Services
             var user = _userService.GetUserById(3);
 
             Assert.Equal("my user", user.Name);
-        } */
+        }
     }
-
 }
