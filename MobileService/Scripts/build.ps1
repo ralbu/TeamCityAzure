@@ -76,7 +76,7 @@ Task Build -Depends RestoreNuGetPackages, UpdateVersion {
   }
 
     $publishProfile = GetPublishProfile 
-return
+
     Exec {
         msbuild $projectToBuild /p:DeployOnBuild=true /p:PublishProfile=$publishProfile /verbosity:$verbosity /nologo /p:Configuration=$config /p:VisualStudioVersion=12.0
     }
@@ -92,7 +92,7 @@ Task RestoreNuGetPackages -Depends Clean -Precondition { return $debugConfigurat
 }
 
 Task UpdateVersion -Precondition { return $debugConfiguration -eq $null -or $debugConfiguration.updateVersion } {
-  (Get-ChildItem -Path $sourceDirectory -Filter AssemblyInfo.cs -Recurse) |
+    (Get-ChildItem -Path $sourceDirectory -Filter AssemblyInfo.cs -Recurse) |
     ForEach-Object {
       (Get-Content $_.FullName) |
         ForEach-Object {
