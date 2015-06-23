@@ -82,8 +82,7 @@ return
     }
 }
 
-Task RestoreNuGetPackages -Depends Clean -Precondition { return debugConfiguration.restorePackage -or $debugConfiguration -eq $null } {
-  return
+Task RestoreNuGetPackages -Depends Clean -Precondition { return $debugConfiguration -eq $null -or $debugConfiguration.restorePackage } {
     if (!(Test-Path $nugetExe)){
         throw "nuget.exe could not be found on this machine. Please check: $nugetExe"
     }
@@ -92,7 +91,7 @@ Task RestoreNuGetPackages -Depends Clean -Precondition { return debugConfigurati
     }
 }
 
-Task UpdateVersion -Precondition { return $debugConfiguration.updateVersion -or $debugConfiguration -eq $null } {
+Task UpdateVersion -Precondition { return $debugConfiguration -eq $null -or $debugConfiguration.updateVersion } {
   (Get-ChildItem -Path $sourceDirectory -Filter AssemblyInfo.cs -Recurse) |
     ForEach-Object {
       (Get-Content $_.FullName) |
@@ -104,7 +103,7 @@ Task UpdateVersion -Precondition { return $debugConfiguration.updateVersion -or 
     }
 }
 
-Task Clean -Precondition { return $debugConfiguration.clean -or $debugConfiguration -eq $null } {
+Task Clean -Precondition { return $debugConfiguration -eq $null -or $debugConfiguration.clean } {
  Exec {
         msbuild $solutionToBuild /t:Clean /verbosity:$verbosity /nologo /p:Configuration=$config /p:VisualStudioVersion=12.0
     }

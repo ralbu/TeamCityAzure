@@ -13,3 +13,5 @@ Import-Module ..\Tools\psake.psm1
 Invoke-psake -buildFile .\build.ps1 `
  -parameters @{version=$version;contentPath=$contentPath;computerName=$computerName;userName=$userName;password=$password} `
  -properties @{"debugConfiguration"=$debugConfiguration}
+
+ if ($psake.build_success -eq $false) { exit 1 } else { exit 0 }
