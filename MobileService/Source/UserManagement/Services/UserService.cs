@@ -12,7 +12,6 @@ namespace UserManagement.Services
 
         public List<User> GetUsers()
         {
-            _users.Add(new User{Id = 1, Name = "test user", Email = "user@email.com"});
             return _users;
         }
 
