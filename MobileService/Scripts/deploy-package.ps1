@@ -12,7 +12,7 @@ function DeployPackage
 
     $msdeploy = "$webDeployExePath\msdeploy.exe"
     if (!(Test-Path $msdeploy)) {
-        throw "msdeploy.exe could not be found on this machine. Searched path: $msdeploy"
+        throw "msdeploy.exe could not be found on this machine. MsDeploy location: $msdeploy"
     }
 
     "***** Start deploying the package from loction: $packageLocation *****"
