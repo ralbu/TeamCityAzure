@@ -25,10 +25,10 @@ namespace Specifications
             _context.Result = Task.Run(() => _httpClient.GetAsync("https://tc.azure-mobile.net/api/user")).Result;
         }
 
-        [Then(@"I receive a (.*) Http Status Code")]
+        [Then(@"I recieve a (.*) Http Status Code")]
         public void ThenIRecieveAHttpStatusCode(int p0)
         {
-            Assert.AreEqual(p0, (int) _context.Result.StatusCode);
+            Assert.AreEqual(p0, (int)_context.Result.StatusCode);
         }
 
         [Given(@"I have a new user")]
@@ -53,5 +53,8 @@ namespace Specifications
                             new StringContent(userJson, Encoding.UTF8, "application/json")))
                     .Result;
         }
+
+       
+
     }
 }
